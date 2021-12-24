@@ -1,1 +1,1 @@
-//placeholder, this is where public js goes change
+//placeholder, this is where public js goes
