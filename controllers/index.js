@@ -1,0 +1,1 @@
+//all routes including api routes and page routes (like handlebar routes)
