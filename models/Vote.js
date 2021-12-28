@@ -11,7 +11,7 @@ Vote.init( //this represents two animals, and their 'matchup'
             primaryKey: true,
             autoIncrement: true
         },
-        vote: { //animal 1 name
+        vote: {
             type: DataTypes.INTEGER,
             allowNull: false //will be 1 or 2
         },
