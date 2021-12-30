@@ -1,0 +1,53 @@
+:root {
+  --color-primary: #303030;
+}
+
+body {
+  background: linear-gradient(
+      white 5%,
+      rgba(255, 255, 255, 0.2) 80%,
+      transparent
+    ),
+    url("../images/background.jpg");
+  min-height: 100vh;
+  background-size: cover;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Praise", cursive;
+}
+
+.header-title {
+  text-align: center;
+  font-size: 40px;
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+.header-login {
+  text-align: right;
+}
+
+.login-btn {
+  text-decoration: none;
+  font-family: "Praise", cursive;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  font-size: 20px;
+}
