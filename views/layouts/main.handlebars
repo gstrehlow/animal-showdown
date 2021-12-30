@@ -5,34 +5,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Animal Showdown</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Praise&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
-
+<!-- class= container-item__subitem -->
 <body>
   <div class="wrapper">
-    <header>
-      <h1>
-        <a href="/">Animal Showdown</a>
-      </h1>
-      <nav>
-      <!-- {{#if loggedIn}}
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}-->
+    <header class="header">
+      <div></div>
+      <a href="/" class="header-title">Animal Showdown</a>
+      <nav class="header-login">
+        {{#if loggedIn}}
+        <button id="logout" class="login-btn">logout</button>
+        {{/if}}
+        <button id="logout" class="login-btn">logout</button>
       </nav>
     </header>
     <main>
       {{{ body }}}
     </main>
-    <footer>
-      Thanks for visiting!
+    <footer class="footer">
+      <p>&copy; {{date}} Made with ❤️ by <a href="https://github.com/gstockha/group-project-ii">Grace, Ceri, George, Grant, and David</a></p>
     </footer>
   </div>
   
- <!-- {{#if loggedIn}}
+  {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
-  {{/if}}-->
+  {{/if}}
 </body>
 
 </html>
