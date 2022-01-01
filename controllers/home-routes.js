@@ -3,8 +3,8 @@ const sequelize = require('../config/connection');
 const { User, Comment, Vote, Matchup } = require('../models');
 
 router.get('/', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
     return;
   }
 const date = new Date().getFullYear()
