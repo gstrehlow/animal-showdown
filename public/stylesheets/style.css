@@ -97,3 +97,38 @@ footer p a {
 .form input {
   width: 100%;
 }
+
+.button-wrapper button {
+  display: inline-block;
+  width: 100%;
+  border: none;
+  padding: 14px 28px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  color: inherit;
+}
+
+.animal_1-button { 
+  background-color: #313fa8;
+}
+
+.animal_2-button {
+  background-color: #a33b2f;
+}
+
+.animal-container {
+  display: flex;
+  background-color: white;
+  border-radius: 0.6rem;
+  padding: 2rem;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.button-wrapper {
+  flex: 1;
+  margin: 0 .5rem;
+  color: white;
+}
