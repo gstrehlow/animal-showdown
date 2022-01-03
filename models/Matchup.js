@@ -23,6 +23,7 @@ Matchup.init( //this represents two animals, and their 'matchup'
     {
         sequelize,
         freezeTableName: true,
+        timestamps: false,
         underscored: true,
         modelName: 'matchups'
     }
