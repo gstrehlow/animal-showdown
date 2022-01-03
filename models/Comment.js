@@ -34,6 +34,10 @@ Comment.init( //this represents two animals, and their 'matchup'
                 model: 'users',
                 key: 'id'
             }
+        },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false //will be 1 or 2
         }
     },
     {

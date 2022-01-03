@@ -5,11 +5,12 @@ const animal_1 = 'Grizzly Bear';
 const animal_2 = 'Tiger';
 
 router.get('/', (req, res) => {
-//  if (!req.session.loggedIn) {
+//  if (!req.session.loggedIn) { re-add this when login is working!
 //    res.redirect('/login');
 //    return;
 //  }
-const date = new Date().getFullYear()
+  
+  const date = new Date().getFullYear()
   res.render('home', {layout:'main', date, animal_1, animal_2});
 });
 
@@ -21,6 +22,6 @@ router.get('/login', (req, res) => {
     }
   
     res.render('login', {layout:'main'});
-  });
+});
 
 module.exports = router;
