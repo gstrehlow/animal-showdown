@@ -135,7 +135,7 @@ footer p a {
   color: inherit;
 }
 
-.animal_1-button { 
+.animal_1-button {
   background-color: #313fa8;
 }
 
@@ -155,6 +155,29 @@ footer p a {
 
 .button-wrapper {
   flex: 1;
-  margin: 0 .5rem;
+  margin: 0 0.5rem;
   color: white;
+}
+
+.comments {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.comment-container {
+  display: flex;
+  margin-top: 3rem;
+  align-items: center;
+}
+
+.author {
+  flex: 30% 0 0;
+}
+
+.comment {
+  flex: 70% 0 0;
+}
+
+textarea {
+  width: 100%;
 }

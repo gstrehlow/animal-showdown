@@ -8,3 +8,17 @@
         <button class="animal_2-button">{{ animal_2 }}</button>
     </div>
 </div>
+<div class="comments">
+{{#each comments as |comment|}}
+    <article class="comment-container">
+      <div class="author">
+          <h4>{{comment.author}}</h4>
+      </div>
+      <div class="comment">
+          {{comment.comment}}
+      </div>
+    </article>
+  {{/each}}
+  <textarea placeholder="Voice your opinion!"></textarea>
+  <button>Submit</button>
+</div>
