@@ -36,6 +36,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers/'));
 
-sequelize.sync({ force: true }).then(() => { //SET FORCE TO FALSE AFTER RUNNING IT FIRST TIME
+sequelize.sync({ force: false }).then(() => { //SET FORCE TO FALSE AFTER RUNNING IT FIRST TIME
   app.listen(PORT, () => console.log(`Now listening on Port ${PORT}. => http://localhost:${PORT}`));
 });

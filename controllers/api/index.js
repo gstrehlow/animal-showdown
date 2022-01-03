@@ -1,11 +1,11 @@
-const router = require('express').Router();
+//api express routes
+const router = require("express").Router();
 
-const voteRoutes = require('./vote-routes.js');
-const matchupRoutes = require('./matchup-routes.js');
-const commentRoutes = require('./comment-routes.js');
+// const userRoutes = require("./user-routes.js");
+// const postRoutes = require("./post-routes");
+const commentRoutes = require("./comment-routes");
 
-router.use('/votes', voteRoutes);
-router.use('/matchups', matchupRoutes);
-router.use('/comments', commentRoutes);
+// router.use("/users", userRoutes);
+router.use("/comments", commentRoutes);
 
 module.exports = router;
