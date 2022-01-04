@@ -13,7 +13,7 @@ router.get('/', (req, res) =>{
                 const hasVoted = (voteSearch !== null); //user hasVoted true or false
                 Vote.findAll({
                     where: {matchup_id: matchup_id},
-                    attributes: ['vote'] //users only need to know the vote counts
+                    attributes: ['vote'] //only need to know the vote counts
                 })
                 .then(voteData =>{
                     Comment.findAll({
@@ -24,9 +24,9 @@ router.get('/', (req, res) =>{
                     .then(commentData =>{
                         let blues = 0
                         for (let i = 0; i < voteData.length; i++){
-                            if (voteData[i] === 1) blues++;
+                            if (voteData[i].vote === 1) blues++;
                         }
-                        let reds = voteData.length - count;
+                        let reds = voteData.length - blues;
                         const sendData = {hasVoted, matchupData, blues, reds, commentData};
                         //**render the matchup + vote totals and comments page**
                         res.json(sendData);
