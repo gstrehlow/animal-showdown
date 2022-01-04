@@ -4,7 +4,8 @@ const { Matchup, Comment, Vote } = require("../../models");
 //test like this: localhost:3001/api/matchups
 //expects: { "matchup_id": INT, "user_id": INT }
 router.get('/', (req, res) =>{
-    const {matchup_id, user_id} = req.body;
+    const user_id = req.session.user_id;
+    const { matchup_id } = req.body;
     Matchup.findOne({where: {id: matchup_id}})
     .then(matchupData =>{
         if (matchupData !== null){ //matchup exists
