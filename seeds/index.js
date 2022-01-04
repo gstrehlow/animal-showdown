@@ -6,7 +6,7 @@ const seedComments = require('./comment-seeds');
 const sequelize = require('../config/connection');
 
 async function seedAll(){
-    await sequelize.sync({ force: true});
+    await sequelize.sync({force: true});
     await seedMatchups();
     console.log('seeded matchups!');
     await seedUsers();

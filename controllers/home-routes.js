@@ -18,7 +18,7 @@ const comments = [{
 
 
 router.get('/', (req, res) => {
-//  if (!req.session.loggedIn) {
+//  if (!req.session.loggedIn) { re-add this when login is working!
 //    res.redirect('/login');
 //    return;
 //  }
@@ -34,6 +34,6 @@ router.get('/login', (req, res) => {
     }
   
     res.render('login', {layout:'main'});
-  });
+});
 
 module.exports = router;
