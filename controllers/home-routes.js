@@ -18,12 +18,13 @@ const comments = [{
 
 
 router.get('/', (req, res) => {
-//  if (!req.session.loggedIn) { re-add this when login is working!
-//    res.redirect('/login');
-//    return;
-//  }
-const date = new Date().getFullYear()
-  res.render('home', {layout:'main', date, animal_1, animal_2, comments});
+ if (!req.session.loggedIn) { 
+   res.redirect('/login');
+   return;
+ }
+  
+  const date = new Date().getFullYear()
+  res.render('home', {layout:'main', date, animal_1, animal_2});
 });
 
 // directs user to login page
