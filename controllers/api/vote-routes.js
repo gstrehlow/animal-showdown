@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const { Vote } = require('../../models');
+const auth = require("../../utils/auth");
 
 //test like this: localhost:3001/api/votes
 //expects: { "vote": INT, "matchup_id": INT, "user_id": INT }
-router.post('/', (req, res) =>{ //vote on a matchup (triggered in a client side js script)
+router.post('/', auth, (req, res) =>{ //vote on a matchup (triggered in a client side js script)
     const user_id = req.session.user_id;
     const {vote, matchup_id } = req.body;
     Vote.findOne({where: {matchup_id: matchup_id, user_id: user_id}})
