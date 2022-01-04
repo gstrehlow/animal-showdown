@@ -4,7 +4,8 @@ const { Vote } = require('../../models');
 //test like this: localhost:3001/api/votes
 //expects: { "vote": INT, "matchup_id": INT, "user_id": INT }
 router.post('/', (req, res) =>{ //vote on a matchup (triggered in a client side js script)
-    const {vote, matchup_id, user_id} = req.body;
+    const user_id = req.session.user_id;
+    const {vote, matchup_id } = req.body;
     Vote.findOne({where: {matchup_id: matchup_id, user_id: user_id}})
     .then(voteSearch =>{
         if (voteSearch === null){ //user hasn't voted yet on this matchup
