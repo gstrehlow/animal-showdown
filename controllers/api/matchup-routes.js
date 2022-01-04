@@ -10,35 +10,36 @@ router.get('/', (req, res) =>{
         if (matchupData !== null){ //matchup exists
             Vote.findOne({where: {matchup_id: matchup_id, user_id: user_id}})
             .then(voteSearch =>{
-                if (voteSearch === null){ //hasn't already voted on it
-                    res.json(matchupData); //**render a fresh matchup page**
-                }
-                else{ //has already voted on it, send all the relevant comments and votes too
-                    Vote.findAll({
+                const hasVoted = (voteSearch !== null); //user hasVoted true or false
+                Vote.findAll({
+                    where: {matchup_id: matchup_id},
+                    attributes: ['vote'] //users only need to know the vote counts
+                })
+                .then(voteData =>{
+                    Comment.findAll({
                         where: {matchup_id: matchup_id},
-                        attributes: ['vote'] //users only need to know the vote counts
+                        attributes: ['comment', 'color', 'username', 'createdAt']
+                        //users only need to know these
                     })
-                    .then(voteData =>{
-                        Comment.findAll({
-                            where: {matchup_id: matchup_id},
-                            attributes: ['comment', 'color', 'username', 'createdAt']
-                            //users only need to know these
-                        })
-                        .then(commentData =>{
-                            const sendData = {matchupData, voteData, commentData};
-                            //**render the matchup + vote totals and comments page**
-                            res.json(sendData);
-                        })
-                        .catch(err => {
-                            console.log('Comment data not found!');
-                            res.status(500).json(err);
-                        })
+                    .then(commentData =>{
+                        let blues = 0
+                        for (let i = 0; i < voteData.length; i++){
+                            if (voteData[i] === 1) blues++;
+                        }
+                        let reds = voteData.length - count;
+                        const sendData = {hasVoted, matchupData, blues, reds, commentData};
+                        //**render the matchup + vote totals and comments page**
+                        res.json(sendData);
                     })
                     .catch(err => {
-                        console.log('Vote data not found!');
+                        console.log('Comment data not found!');
                         res.status(500).json(err);
                     })
-                }
+                })
+                .catch(err => {
+                    console.log('Vote data not found!');
+                    res.status(500).json(err);
+                })
             })
             .catch(err => {
                 console.log('Matchup data not found!');

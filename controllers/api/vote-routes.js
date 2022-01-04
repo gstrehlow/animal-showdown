@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Vote, Comment } = require('../../models');
+const { Vote } = require('../../models');
 
 //test like this: localhost:3001/api/votes
 //expects: { "vote": INT, "matchup_id": INT, "user_id": INT }
