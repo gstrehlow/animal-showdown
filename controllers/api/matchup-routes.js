@@ -1,10 +1,12 @@
 const router = require("express").Router();
-const { Matchup, Comment, Vote } = require('../../models');
+const { Matchup, Comment, Vote } = require("../../models");
+const auth = require("../../utils/auth");
 
 //test like this: localhost:3001/api/matchups
 //expects: { "matchup_id": INT, "user_id": INT }
-router.get('/', (req, res) =>{
-    const {matchup_id, user_id} = req.body;
+router.get('/', auth, (req, res) =>{
+    const user_id = req.session.user_id;
+    const { matchup_id } = req.body;
     Matchup.findOne({where: {id: matchup_id}})
     .then(matchupData =>{
         if (matchupData !== null){ //matchup exists
@@ -52,6 +54,10 @@ router.get('/', (req, res) =>{
         console.log('Matchup data not found!');
         res.status(500).json(err);
     })
-})
+    .catch((err) => {
+      console.log("Matchup data not found!");
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;
