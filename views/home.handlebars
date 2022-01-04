@@ -1,23 +1,26 @@
 <!-- whatever goes here will render in the 'body' in main.handlebars-->
-<h1>Who would win in a fight?</h1>
-<div class="animal-container">
-    <div class="button-wrapper">
-        <button 
+<div class="matchup-container">
+  <h1 class="fight-title">Who would win in a fight?</h1>
+    <div class="animal-container">
+        <div class="button-wrapper">
+            <button 
         data-vote="{{ vote }}"
         data-matchupId="{{ matchup_id }}" 
         data-user_id="{{ user_id }}"
         class="animal_1-button">
             {{ animal_1 }}
         </button>
-    </div>
-    <div class="button-wrapper">
-        <button 
+        </div>
+        <div class="or">OR</div>
+        <div class="button-wrapper">
+             <button 
         data-vote="{{ vote }}"
         data-matchupId="{{ matchup_id }}" 
         data-user_id="{{ user_id }}"
         class="animal_2-button">
             {{ animal_2 }}
         </button>
+        </div>
     </div>
 </div>
 <div class="comments">
@@ -32,5 +35,5 @@
     </article>
   {{/each}}
   <textarea placeholder="Voice your opinion!"></textarea>
-  <button>Submit</button>
+  <button class="submit-btn">Submit</button>
 </div>

@@ -22,12 +22,11 @@ html {
 }
 
 footer {
-  position: fixed;
   bottom: 0%;
   padding: 1rem;
   width: 100%;
   font-weight: 300;
-  font-family: sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: rgba(48, 48, 48, 0.8);
   color: white;
 }
@@ -56,7 +55,7 @@ footer p a {
 
 .header-title {
   text-align: center;
-  font-size: 40px;
+  font-size: 60px;
   text-decoration: none;
   color: var(--color-primary);
 }
@@ -67,11 +66,14 @@ footer p a {
 
 .login-btn {
   text-decoration: none;
-  font-family: "Praise", cursive;
+  font-family: "Playfair Display", serif;
   background-color: var(--color-primary);
   color: white;
   padding: 0.25rem 0.75rem;
-  font-size: 20px;
+  font-size: 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .container {
@@ -129,28 +131,51 @@ footer p a {
   width: 100%;
   border: none;
   padding: 14px 28px;
-  font-size: 24px;
+  font-size: 50px;
   cursor: pointer;
   text-align: center;
   color: inherit;
+  height: 15rem;
+  font-family: "Playfair Display", serif;
+  border-radius: 0.6rem;
+}
+
+.button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 .animal_1-button {
   background-color: #313fa8;
 }
 
+.animal_1-button:hover {
+  background-color: #7986e7;
+}
+
 .animal_2-button {
   background-color: #a33b2f;
 }
 
-.animal-container {
+.animal_2-button:hover {
+  background-color: #e6796d;
+}
+
+.matchup-container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: white;
   border-radius: 0.6rem;
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   max-width: 900px;
   margin: 0 auto;
+}
+
+.animal-container {
+  display: flex;
+  align-items: center;
 }
 
 .button-wrapper {
@@ -161,13 +186,19 @@ footer p a {
 
 .comments {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 1rem auto;
+  background-color: white;
+  border-radius: 0.6rem;
+  padding: 2rem;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  font-family: "Playfair Display", serif;
 }
 
 .comment-container {
   display: flex;
-  margin-top: 3rem;
+  margin-top: 0.5rem;
   align-items: center;
+  justify-content: space-around;
 }
 
 .author {
@@ -180,4 +211,25 @@ footer p a {
 
 textarea {
   width: 100%;
+  font-family: "Playfair Display", serif;
+}
+
+.submit-btn {
+  text-decoration: none;
+  font-family: "Playfair Display", serif;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  font-size: 15px;
+}
+
+.fight-title {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+}
+
+.or {
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  font-weight: bold;
 }
