@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
  }
   
   const date = new Date().getFullYear()
-  res.render('home', {layout:'main', date, animal_1, animal_2});
+  res.render('home', {layout:'main', date, animal_1, animal_2, comments});
 });
 
 // directs user to login page

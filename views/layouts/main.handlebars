@@ -17,7 +17,7 @@
       <div></div>
       <a href="/" class="header-title">Animal Showdown</a>
       <nav class="header-login">
-        {{#if loggedIn}}
+        {{#if session.loggedIn}}
         <button id="logout" class="login-btn">logout</button>
         {{/if}}
       </nav>
@@ -30,7 +30,7 @@
     </footer>
   </div>
   
-  {{#if loggedIn}}
+  {{#if session.loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
 </body>
