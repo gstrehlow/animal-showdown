@@ -26,6 +26,7 @@
   </div>
 </div>
 {{#if hasVoted}}
+<div>
  <canvas id="myChart"></canvas>
 
 <script>
@@ -53,7 +54,7 @@
         }
     });
 </script>
-<div class="container"></div>
+</div>
 <div class="comments">
     <div class="comment-title">See what others said about this Matchup</div>
   {{#each comments as |comment|}}
