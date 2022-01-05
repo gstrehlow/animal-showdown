@@ -9,24 +9,26 @@ async function matchupFormHandler(event) {
   })
   if (!response.ok) return;
   else{
-    let mID = dataset.matchup_id;
-    let seenList = JSON.parse(localStorage.getItem("seenMatchups"));
-    if (!seenList) seenList = {};
-    seenList[mID] = true;
-    localStorage.setItem("seenMatchups",JSON.stringify(seenList));
-    let target = undefined;
-    for (let i = 1; i < 13; i++){
-      if (seenList[i] === undefined){
-        target = i;
-        break;
-      }
-    }
-    if (target === undefined){
-      target = Math.floor(Math.random() * 12) + 1;
-      localStorage.setItem("seenMatchups",JSON.stringify({})); //cleared list
-    } else {
-      document.location.replace(`/api/matchups/${dataset.matchup_id}`);
-    }
+    document.location.replace(`/api/matchups/${dataset.matchup_id}`); //reload the same matchup
+    //ALL COMMENTED LOGIC HERE IS NOW IN NEXT MATCHUP.js
+    // let mID = dataset.matchup_id;
+    // let seenList = JSON.parse(localStorage.getItem("seenMatchups"));
+    // if (!seenList) seenList = {};
+    // seenList[mID] = true;
+    // localStorage.setItem("seenMatchups",JSON.stringify(seenList));
+    // let target = undefined;
+    // for (let i = 1; i < 13; i++){
+    //   if (seenList[i] === undefined){
+    //     target = i;
+    //     break;
+    //   }
+    // }
+    // if (target === undefined){
+    //   target = Math.floor(Math.random() * 12) + 1;
+    //   localStorage.setItem("seenMatchups",JSON.stringify({})); //cleared list
+    // } else {
+      // document.location.replace(`/api/matchups/${dataset.matchup_id}`); //reload the same matchup
+    // }
   }
 }
 

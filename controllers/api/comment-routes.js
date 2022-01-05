@@ -7,14 +7,15 @@ const auth = require("../../utils/auth");
 router.post("/", auth, (req, res) => {
   //vote on a matchup (triggered in a client side js script)
   const { comment, matchup_id } = req.body;
-  Vote.findOne({ where: { matchup_id, user_id: req.session.id } }).then(
+  const user_id = req.session.user_id;
+  Vote.findOne({ where: { matchup_id, user_id } }).then(
     (voteSearch) => {
       if (voteSearch !== null) {
         //user has voted on this matchup, can comment
         //1 = blue, 2 = red (rendered client side)
         if (voteSearch.vote === 1 || 2) {
           color = voteSearch.vote;
-          User.findOne({ where: { id: req.session.id } })
+          User.findOne({ where: { id: user_id } })
             .then((userSearch) => {
               const username = userSearch.username;
               Comment.create({
