@@ -1,31 +1,11 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Comment, Vote, Matchup } = require('../models');
-// const animal_1 = 'Grizzly Bear';
-// const animal_2 = 'Tiger';
-// const comments = [{
-//   comment: "This sucks!",
-//   color: 2,
-//   matchup_id: 2, //3 of these for now
-//   author: "cerihaf" //5 user seeds
-// },
-// {
-//   comment: "RHINOS RULE!!!!",
-//   color: 1,
-//   matchup_id: 2,
-//  author: "gwacky"
-// },]
+const auth = require('../utils/auth');
 
-
-router.get('/', (req, res) => {
-  if (!req.session.loggedIn) { 
-    res.redirect('/login');
-    return;
-  }
-  const user_id = req.session.user_id;
-  //const { matchup_id } = req.body;
-  const matchup_id = Math.floor(Math.random() * 11) + 1;
-  //const matchup_id = 1;
+router.get('/', auth, (req, res) => { //load random matchup
+  const user_id = req.session.user_id; //doesn't work for now?
+  const matchup_id = Math.floor(Math.random() * 12) + 1;
   Matchup.findOne({where: {id: matchup_id}})
   .then(matchupData =>{
       if (matchupData !== null){ //matchup exists
@@ -52,7 +32,6 @@ router.get('/', (req, res) => {
                       const animal_1 = matchupData.animal_1;
                       const animal_2 = matchupData.animal_2;
                       const date = new Date().getFullYear();
-                      console.log(comments);
                       res.render('home', {layout:'main', date, hasVoted, animal_1, animal_2, blues, reds, comments, matchup_id});
                   })
                   .catch(err => {
