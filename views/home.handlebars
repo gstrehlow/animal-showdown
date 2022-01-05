@@ -25,18 +25,17 @@
     </div>
   </div>
 </div>
-{{!-- {{#if hasVoted}} --}}
-    <div class="container">
-        <canvas id="myChart"></canvas>
-    </div>
+{{#if hasVoted}}
+ <canvas id="myChart"></canvas>
 
 <script>
     let myChart = document.getElementById('myChart').getContext('2d');
-
+    let animal_1 = document.querySelector('[data-vote="1"]').innerHTML
+    let animal_2 = document.querySelector('[data-vote="2"]').innerHTML
     let animalChart = new Chart(myChart, {
         type: 'pie',
         data:{
-            labels:['Gorilla', 'Tiger'],
+            labels:[animal_1, animal_2 ],
             datasets:[{
                 label:'Votes',
                 data:[
@@ -44,8 +43,8 @@
                     {{reds}}
                 ],
                 backgroundColor:[
-                    'red',
-                    'navy'
+                    '#313fa8',
+                    '#a33b2f'
                 ]
             }]
         },
@@ -54,6 +53,7 @@
         }
     });
 </script>
+<div class="container"></div>
 <div class="comments">
     <div class="comment-title">See what others said about this Matchup</div>
   {{#each comments as |comment|}}
@@ -78,74 +78,6 @@
   <textarea placeholder="Voice your opinion!"></textarea>
   <button class="submit-btn">Submit</button>
 </div>
-{{!-- {{/if}} --}}
-<script>
-    async function matchupFormHandler(event) {
-      event.preventDefault();
-      let dataset = {...event.target.dataset};
-      console.log(dataset);
-      const response = await fetch("/api/votes", {
-          method: "POST",
-          body: JSON.stringify(dataset),
-          headers: {'Content-Type': 'application/json'}
-      })
-      if (!response.ok) return;
-      else{
-        let mID = dataset.matchup_id;
-        let seenList = JSON.parse(localStorage.getItem("seenMatchups"));
-        if (!seenList) seenList = {};
-        seenList[mID] = true;
-        localStorage.setItem("seenMatchups",JSON.stringify(seenList));
-        let target = undefined;
-        for (let i = 1; i < 13; i++){
-          if (seenList[i] === undefined){
-            target = i;
-            break;
-          }
-        }
-        if (target === undefined){
-          target = Math.floor(Math.random() * 12) + 1;
-          localStorage.setItem("seenMatchups",JSON.stringify({})); //cleared list
-        }
-        document.location.replace(`/api/matchups/${target}`);
-      }
-  }
-
-  document
-    .querySelector(".animal_1-button")
-    .addEventListener("click", matchupFormHandler);
-  document
-    .querySelector(".animal_2-button")
-    .addEventListener("click", matchupFormHandler);
-
-  async function commentFormHandler(event) {
-    event.preventDefault();
-
-    const comment = document
-      .querySelector('textarea')
-      .value.trim();
-    const matchup_id = window.location.toString().split("/")[
-      window.location.toString().split("/").length - 1
-    ];
-    console.log(comment, matchup_id);
-    if (comment) {
-      const response = await fetch("/api/comments", {
-        method: "POST",
-        body: JSON.stringify({ comment, matchup_id }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (response.ok) {
-        document.location.replace(`/api/matchups/${matchup_id}`); //reload the same matchup
-      } else {
-        alert(response.statusText);
-      }
-    }
-  }
-
-  document
-    .querySelector(".submit-btn")
-    .addEventListener("click", commentFormHandler);
-</script>
+<script src="https://animalshowdown.herokuapp.com/javascript/comment.js"></script>
+{{/if}}
+<script src="https://animalshowdown.herokuapp.com/javascript/vote.js"></script>

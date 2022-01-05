@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User, Comment, Vote, Matchup } = require('../models');
+const { Comment, Vote, Matchup } = require('../models');
 const auth = require('../utils/auth');
 
 router.get('/', auth, (req, res) => { //load random matchup
   const user_id = req.session.user_id; //doesn't work for now?
+  console.log(user_id)
   const matchup_id = Math.floor(Math.random() * 12) + 1;
   Matchup.findOne({where: {id: matchup_id}})
   .then(matchupData =>{
@@ -70,5 +71,6 @@ router.get('/login', (req, res) => {
   
     res.render('login', {layout:'main'});
 });
+
 
 module.exports = router;

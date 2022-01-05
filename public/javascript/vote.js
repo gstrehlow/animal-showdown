@@ -24,8 +24,9 @@ async function matchupFormHandler(event) {
     if (target === undefined){
       target = Math.floor(Math.random() * 12) + 1;
       localStorage.setItem("seenMatchups",JSON.stringify({})); //cleared list
+    } else {
+      document.location.replace(`/api/matchups/${dataset.matchup_id}`);
     }
-    document.location.replace(`/api/matchups/${target}`);
   }
 }
 
