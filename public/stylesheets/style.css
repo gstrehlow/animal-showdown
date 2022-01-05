@@ -145,7 +145,8 @@ footer p a {
   transform: translateY(4px);
 }
 
-.animal_1-button {
+.animal_1-button,
+.comment-color-1 {
   background-color: #313fa8;
 }
 
@@ -153,7 +154,8 @@ footer p a {
   background-color: #7986e7;
 }
 
-.animal_2-button {
+.animal_2-button,
+.comment-color-2 {
   background-color: #a33b2f;
 }
 
@@ -242,3 +244,5 @@ textarea {
 .user-avi {
   display: block;
 }
+
+.comment-color;
