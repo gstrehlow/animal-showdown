@@ -51,7 +51,8 @@ footer p a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "Praise", cursive;
+  font-family: "Staatliches", cursive;
+  margin-bottom: 0.5rem;
 }
 
 .header-title {
@@ -78,10 +79,14 @@ footer p a {
 }
 
 .container {
-  margin: 2rem 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 1rem 0;
   background-color: white;
   border-radius: 0.6rem;
-  padding: 1.5rem;
+  padding: 0.5rem 1.5rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   max-width: 300px;
 }
@@ -112,6 +117,10 @@ footer p a {
 .form label {
   font-weight: 600;
   margin-bottom: 0.25rem;
+}
+
+.form h3 {
+  margin-top: 0;
 }
 
 .divider {
@@ -151,11 +160,11 @@ footer p a {
   background-color: #7986e7;
 }
 
-.comment-color-1{
+.comment-color-1 {
   background-color: #b0b8ff;
 }
 
-.animal_2-button{
+.animal_2-button {
   background-color: #a33b2f;
 }
 
@@ -163,7 +172,7 @@ footer p a {
   background-color: #e6796d;
 }
 
-.comment-color-2{
+.comment-color-2 {
   background-color: #fdb9b9;
 }
 
@@ -243,6 +252,7 @@ textarea {
   font-family: "Playfair Display", serif;
   font-size: 15px;
   font-weight: bold;
+  margin: 0;
 }
 
 .user-avi {

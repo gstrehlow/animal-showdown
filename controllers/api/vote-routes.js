@@ -7,6 +7,7 @@ const auth = require("../../utils/auth");
 router.post('/', auth, (req, res) =>{ //vote on a matchup (triggered in a client side js script)
     const user_id = req.session.user_id;
     const {vote, matchup_id} = req.body;
+    console.log(user_id)
     Vote.findOne({where: {matchup_id, user_id}})
     .then(voteSearch =>{
         if (voteSearch === null){ //user hasn't voted yet on this matchup
