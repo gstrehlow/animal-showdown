@@ -7,13 +7,13 @@ const comments = [{
   comment: "This sucks!",
   color: 2,
   matchup_id: 2, //3 of these for now
-  author: "Huntikins" //5 user seeds
+  author: "cerihaf" //5 user seeds
 },
 {
   comment: "RHINOS RULE!!!!",
   color: 1,
   matchup_id: 2,
- author: "huntikins"
+ author: "gwacky"
 },]
 
 

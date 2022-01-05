@@ -198,15 +198,20 @@ footer p a {
   display: flex;
   margin-top: 0.5rem;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
-.author {
-  flex: 30% 0 0;
+.comment-body {
+  display: flex;
+  flex-direction: column;
 }
 
-.comment {
-  flex: 70% 0 0;
+.comment-title {
+  font-family: "Playfair Display", serif;
+}
+
+.author h4 {
+  margin: 0;
 }
 
 textarea {
@@ -232,4 +237,8 @@ textarea {
   font-family: "Playfair Display", serif;
   font-size: 15px;
   font-weight: bold;
+}
+
+.user-avi {
+  display: block;
 }
