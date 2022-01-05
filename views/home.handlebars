@@ -1,12 +1,14 @@
+<!-- link to chart.js-->
+<script src=https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js></script>
 <!-- whatever goes here will render in the 'body' in main.handlebars-->
 <div class="matchup-container">
   <h1 class="fight-title">Who would win in a fight?</h1>
   <div class="animal-container">
     <div class="button-wrapper">
       <button
-        data-vote="{{vote}}"
+        data-vote="1"
         data-matchup_id="{{matchup_id}}"
-        data-user_id="{{user_id}}"
+        data-user_id="{{session.user_id}}"
         class="animal_1-button"
       >
         {{animal_1}}
@@ -15,9 +17,9 @@
     <div class="or">OR</div>
     <div class="button-wrapper">
       <button
-        data-vote="{{vote}}"
+        data-vote="2"
         data-matchup_id="{{matchup_id}}"
-        data-user_id="{{user_id}}"
+        data-user_id="{{session.user_id}}"
         class="animal_2-button"
       >
         {{animal_2}}
@@ -25,6 +27,34 @@
     </div>
   </div>
 </div>
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+<script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    let animalChart = new Chart(myChart, {
+        type: 'pie',
+        data:{
+            labels:['Gorilla', 'Tiger'],
+            datasets:[{
+                label:'Votes',
+                data:[
+                    {{blues}},
+                    {{reds}}
+                ],
+                backgroundColor:[
+                    'red',
+                    'navy'
+                ]
+            }]
+        },
+        options:{
+            responsive: true
+        }
+    });
+</script>
 {{#if hasVoted}}
 <div>
   <h4>{{blues}}</h4>
@@ -33,7 +63,7 @@
 <div class="comments">
     <div class="comment-title">See what others said about this Matchup</div>
   {{#each comments as |comment|}}
-    <article class="comment-container color-{{comment.color}}" >
+    <article class="comment-container comment-color-{{comment.color}}">
       <img
         class="user-avi"
         height="50"
