@@ -1,36 +1,48 @@
 <!-- whatever goes here will render in the 'body' in main.handlebars-->
 <div class="matchup-container">
   <h1 class="fight-title">Who would win in a fight?</h1>
-    <div class="animal-container">
-        <div class="button-wrapper">
-            <button 
-        data-vote="{{ vote }}"
-        data-matchupId="{{ matchup_id }}" 
-        data-user_id="{{ user_id }}"
-        class="animal_1-button">
-            {{ animal_1 }}
-        </button>
-        </div>
-        <div class="or">OR</div>
-        <div class="button-wrapper">
-             <button 
-        data-vote="{{ vote }}"
-        data-matchupId="{{ matchup_id }}" 
-        data-user_id="{{ user_id }}"
-        class="animal_2-button">
-            {{ animal_2 }}
-        </button>
-        </div>
+  <div class="animal-container">
+    <div class="button-wrapper">
+      <button
+        data-vote="{{vote}}"
+        data-matchupId="{{matchup_id}}"
+        data-user_id="{{user_id}}"
+        class="animal_1-button"
+      >
+        {{animal_1}}
+      </button>
     </div>
+    <div class="or">OR</div>
+    <div class="button-wrapper">
+      <button
+        data-vote="{{vote}}"
+        data-matchupId="{{matchup_id}}"
+        data-user_id="{{user_id}}"
+        class="animal_2-button"
+      >
+        {{animal_2}}
+      </button>
+    </div>
+  </div>
 </div>
 <div class="comments">
-{{#each comments as |comment|}}
+    <div class="comment-title">See what others said about this Matchup</div>
+  {{#each comments as |comment|}}
     <article class="comment-container">
-      <div class="author">
+      <img
+        class="user-avi"
+        height="50"
+        width="50"
+        src="https://avatars.dicebear.com/api/croodles/{{comment.author}}.svg"
+        alt="{{comment.author}}"
+      />
+      <div class="comment-body">
+        <div class="author">
           <h4>{{comment.author}}</h4>
-      </div>
-      <div class="comment">
+        </div>
+        <div class="comment">
           {{comment.comment}}
+        </div>
       </div>
     </article>
   {{/each}}
