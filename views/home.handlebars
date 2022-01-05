@@ -25,10 +25,12 @@
     </div>
   </div>
 </div>
+<div>
+  <button data-matchup_id="{{matchup-id}}" class="next-button">"Next Matchup"</button>
+</div>
 {{#if hasVoted}}
 <div>
  <canvas id="myChart"></canvas>
-
 <script>
     let myChart = document.getElementById('myChart').getContext('2d');
     let animal_1 = document.querySelector('[data-vote="1"]').innerHTML
@@ -82,3 +84,29 @@
 <script src="https://animalshowdown.herokuapp.com/javascript/comment.js"></script>
 {{/if}}
 <script src="https://animalshowdown.herokuapp.com/javascript/vote.js"></script>
+<script> //should be src='...nextmatchup.js' here
+  function nextFormHandler(event) {
+    event.preventDefault();
+    let dataset = {...event.target.dataset};
+    let seenList = JSON.parse(localStorage.getItem("seenMatchups"));
+    if (!seenList) seenList = {};
+    seenList[dataset.matchup_id] = true;
+    localStorage.setItem("seenMatchups",JSON.stringify(seenList));
+    let target = undefined;
+    for (let i = 1; i < 13; i++){
+    if (seenList[i] === undefined){
+        target = i;
+        break;
+    }
+    }
+    if (target === undefined){
+    target = Math.floor(Math.random() * 12) + 1;
+    localStorage.setItem("seenMatchups",JSON.stringify({})); //cleared list
+    }
+    document.location.replace(`/api/matchups/${target}`); //reload the same matchup
+}
+  
+document
+  .querySelector(".next-button")
+  .addEventListener("click", nextFormHandler);
+</script>
