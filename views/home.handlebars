@@ -9,8 +9,7 @@
         data-vote="1"
         data-matchup_id="{{matchup_id}}"
         data-user_id="{{session.user_id}}"
-        class="animal_1-button"
-      >
+        class="animal_1-button">
         {{animal_1}}
       </button>
     </div>
@@ -20,13 +19,13 @@
         data-vote="2"
         data-matchup_id="{{matchup_id}}"
         data-user_id="{{session.user_id}}"
-        class="animal_2-button"
-      >
+        class="animal_2-button">
         {{animal_2}}
       </button>
     </div>
   </div>
 </div>
+{{#if hasVoted}}
     <div class="container">
         <canvas id="myChart"></canvas>
     </div>
@@ -55,7 +54,7 @@
         }
     });
 </script>
-{{#if hasVoted}}
+
 <div>
   <h4>{{blues}}</h4>
   <h4>{{reds}}</h4>
