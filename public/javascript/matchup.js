@@ -9,9 +9,9 @@ async function mathcupFormHandler(event) {
         const response = await fetch("/api/votes", {
             method: "POST",
             body: JSON.stringify({
-                vote: vote,
-                matchup_id: matchup_id,
-                user_id: user_id
+                vote: vote, //need to define these two
+                matchup_id: matchup_id
+                //user_id: user_id
             })
         })
         console.log(response)
