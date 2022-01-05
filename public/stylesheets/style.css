@@ -22,6 +22,7 @@ html {
 }
 
 footer {
+  position: fixed;
   bottom: 0%;
   padding: 1rem;
   width: 100%;
@@ -77,10 +78,7 @@ footer p a {
 }
 
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 2rem 0;
   background-color: white;
   border-radius: 0.6rem;
   padding: 1.5rem;
@@ -145,7 +143,8 @@ footer p a {
   transform: translateY(4px);
 }
 
-.animal_1-button {
+.animal_1-button,
+.comment-color-1 {
   background-color: #313fa8;
 }
 
@@ -153,7 +152,8 @@ footer p a {
   background-color: #7986e7;
 }
 
-.animal_2-button {
+.animal_2-button,
+.comment-color-2 {
   background-color: #a33b2f;
 }
 

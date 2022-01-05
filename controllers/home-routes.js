@@ -24,8 +24,8 @@ router.get('/', (req, res) => {
   }
   const user_id = req.session.user_id;
   //const { matchup_id } = req.body;
-  //const matchup_id = Math.floor(Math.random() * 11) + 1;
-  const matchup_id = 1;
+  const matchup_id = Math.floor(Math.random() * 11) + 1;
+  //const matchup_id = 1;
   Matchup.findOne({where: {id: matchup_id}})
   .then(matchupData =>{
       if (matchupData !== null){ //matchup exists
@@ -53,7 +53,7 @@ router.get('/', (req, res) => {
                       const animal_2 = matchupData.animal_2;
                       const date = new Date().getFullYear();
                       console.log(comments);
-                      res.render('home', {layout:'main', date, hasVoted, animal_1, animal_2, blues, reds, comments});
+                      res.render('home', {layout:'main', date, hasVoted, animal_1, animal_2, blues, reds, comments, matchup_id});
                   })
                   .catch(err => {
                       console.log('Comment data not found!');
