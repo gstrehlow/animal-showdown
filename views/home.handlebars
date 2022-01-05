@@ -4,9 +4,9 @@
   <div class="animal-container">
     <div class="button-wrapper">
       <button
-        data-vote="{{vote}}"
-        data-matchupId="{{matchup_id}}"
-        data-user_id="{{user_id}}"
+        data-vote="1"
+        data-matchup_id="{{matchup_id}}"
+        data-user_id="{{session.user_id}}"
         class="animal_1-button"
       >
         {{animal_1}}
@@ -15,9 +15,9 @@
     <div class="or">OR</div>
     <div class="button-wrapper">
       <button
-        data-vote="{{vote}}"
-        data-matchupId="{{matchup_id}}"
-        data-user_id="{{user_id}}"
+        data-vote="2"
+        data-matchup_id="{{matchup_id}}"
+        data-user_id="{{session.user_id}}"
         class="animal_2-button"
       >
         {{animal_2}}
