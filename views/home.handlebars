@@ -1,10 +1,57 @@
 <!-- whatever goes here will render in the 'body' in main.handlebars-->
-<h1>Who would win in a fight?</h1>
-<div class="animal-container">
+<div class="matchup-container">
+  <h1 class="fight-title">Who would win in a fight?</h1>
+  <div class="animal-container">
     <div class="button-wrapper">
-        <button class="animal_1-button">{{ animal_1 }}</button>
+      <button
+        data-vote="{{vote}}"
+        data-matchupId="{{matchup_id}}"
+        data-user_id="{{user_id}}"
+        class="animal_1-button"
+      >
+        {{animal_1}}
+      </button>
     </div>
+    <div class="or">OR</div>
     <div class="button-wrapper">
-        <button class="animal_2-button">{{ animal_2 }}</button>
+      <button
+        data-vote="{{vote}}"
+        data-matchupId="{{matchup_id}}"
+        data-user_id="{{user_id}}"
+        class="animal_2-button"
+      >
+        {{animal_2}}
+      </button>
     </div>
+  </div>
 </div>
+{{#if hasVoted}}
+<div>
+  <h4>{{blues}}</h4>
+  <h4>{{reds}}</h4>
+</div>
+<div class="comments">
+    <div class="comment-title">See what others said about this Matchup</div>
+  {{#each comments as |comment|}}
+    <article class="comment-container color-{{comment.color}}" >
+      <img
+        class="user-avi"
+        height="50"
+        width="50"
+        src="https://avatars.dicebear.com/api/croodles/{{comment.username}}.svg"
+        alt="{{comment.username}}"
+      />
+      <div class="comment-body">
+        <div class="author">
+          <h4>{{comment.username}}</h4>
+        </div>
+        <div class="comment">
+          {{comment.comment}}
+        </div>
+      </div>
+    </article>
+  {{/each}}
+  <textarea placeholder="Voice your opinion!"></textarea>
+  <button class="submit-btn">Submit</button>
+</div>
+{{/if}}
