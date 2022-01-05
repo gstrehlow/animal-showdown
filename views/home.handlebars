@@ -25,20 +25,25 @@
     </div>
   </div>
 </div>
+{{#if hasVoted}}
+<div>
+  <h4>{{blues}}</h4>
+  <h4>{{reds}}</h4>
+</div>
 <div class="comments">
     <div class="comment-title">See what others said about this Matchup</div>
   {{#each comments as |comment|}}
-    <article class="comment-container">
+    <article class="comment-container color-{{comment.color}}" >
       <img
         class="user-avi"
         height="50"
         width="50"
-        src="https://avatars.dicebear.com/api/croodles/{{comment.author}}.svg"
-        alt="{{comment.author}}"
+        src="https://avatars.dicebear.com/api/croodles/{{comment.username}}.svg"
+        alt="{{comment.username}}"
       />
       <div class="comment-body">
         <div class="author">
-          <h4>{{comment.author}}</h4>
+          <h4>{{comment.username}}</h4>
         </div>
         <div class="comment">
           {{comment.comment}}
@@ -49,3 +54,4 @@
   <textarea placeholder="Voice your opinion!"></textarea>
   <button class="submit-btn">Submit</button>
 </div>
+{{/if}}
