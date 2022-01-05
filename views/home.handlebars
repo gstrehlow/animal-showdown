@@ -25,7 +25,7 @@
     </div>
   </div>
 </div>
-{{#if hasVoted}}
+{{!-- {{#if hasVoted}} --}}
     <div class="container">
         <canvas id="myChart"></canvas>
     </div>
@@ -54,11 +54,6 @@
         }
     });
 </script>
-
-<div>
-  <h4>{{blues}}</h4>
-  <h4>{{reds}}</h4>
-</div>
 <div class="comments">
     <div class="comment-title">See what others said about this Matchup</div>
   {{#each comments as |comment|}}
@@ -83,5 +78,5 @@
   <textarea placeholder="Voice your opinion!"></textarea>
   <button class="submit-btn">Submit</button>
 </div>
-{{/if}}
-<script src="/javascript/matchup.js"></script>
+{{!-- {{/if}} --}}
+<script src="../public/javascript/vote.js"></script>

@@ -6,7 +6,7 @@ const auth = require("../../utils/auth");
 //expects: { "vote": INT, "matchup_id": INT, "user_id": INT }
 router.post('/', auth, (req, res) =>{ //vote on a matchup (triggered in a client side js script)
     const user_id = req.session.user_id;
-    const {vote, matchup_id } = req.body;
+    const {vote, matchup_id} = req.body;
     console.log(req.locals.session)
     Vote.findOne({where: {matchup_id, user_id}})
     .then(voteSearch =>{

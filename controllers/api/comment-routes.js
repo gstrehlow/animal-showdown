@@ -22,7 +22,7 @@ router.post("/", auth, (req, res) => {
                 color: color,
                 matchup_id: matchup_id,
                 user_id: req.session.user_id,
-                username: username,
+                username: username
               }) //**do a matchup route get request after this, it will render comments and votes**
                 .then((commentData) => res.json(commentData))
                 .catch((err) => {

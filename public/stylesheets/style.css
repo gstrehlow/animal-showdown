@@ -143,8 +143,7 @@ footer p a {
   transform: translateY(4px);
 }
 
-.animal_1-button,
-.comment-color-1 {
+.animal_1-button {
   background-color: #313fa8;
 }
 
@@ -152,13 +151,20 @@ footer p a {
   background-color: #7986e7;
 }
 
-.animal_2-button,
-.comment-color-2 {
+.comment-color-1{
+  background-color: #b0b8ff;
+}
+
+.animal_2-button{
   background-color: #a33b2f;
 }
 
 .animal_2-button:hover {
   background-color: #e6796d;
+}
+
+.comment-color-2{
+  background-color: #fdb9b9;
 }
 
 .matchup-container {

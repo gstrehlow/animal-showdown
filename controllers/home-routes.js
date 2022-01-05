@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
   }
   const user_id = req.session.user_id;
   //const { matchup_id } = req.body;
-  const matchup_id = Math.floor(Math.random() * 11) + 1;
+  const matchup_id = Math.floor(Math.random() * 12) + 1;
   //const matchup_id = 1;
   Matchup.findOne({where: {id: matchup_id}})
   .then(matchupData =>{
