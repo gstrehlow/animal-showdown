@@ -12,11 +12,12 @@ body {
   min-height: 100vh;
   background-size: cover;
   position: relative;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 body,
 html {
-  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -201,7 +202,7 @@ footer p a {
 
 .comments {
   max-width: 900px;
-  margin: 1rem auto;
+  margin: 1rem auto 6rem;
   background-color: white;
   border-radius: 0.6rem;
   padding: 2rem;
@@ -257,4 +258,13 @@ textarea {
 
 .user-avi {
   display: block;
+}
+
+#myChart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2rem 2rem 2rem;
+  max-width: 900px;
+  margin: 2rem auto 0;
 }
