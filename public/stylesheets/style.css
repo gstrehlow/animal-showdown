@@ -79,6 +79,19 @@ footer p a {
   right: 0;
 }
 
+.next-button {
+  text-decoration: none;
+  font-family: "Playfair Display", serif;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0.25rem 0.75rem;
+}
+
 .container {
   position: absolute;
   top: 50%;
