@@ -6,7 +6,7 @@
 
   ## Description
 
-  ### Animal Showdown is an interactive application where users are able to create and log into an account. Once doing so, the match begins. Presented are two unlikely enemies forced into a fight. Which animal wins? The people decide. The user's vote is cast and has now has the ability to view other's comments and create comments of their own. Who will win?
+  ### Animal Showdown is an interactive application where users are able to create and login an account. Once doing so, the match begins. Presented are two unlikely enemies forced into a fight. Which animal wins? The people decide. The user's vote is cast and now has the ability to view other's comments and create comments of their own. Who will win?
 
   ## Table of Contents
   1. [Installation](#installation)

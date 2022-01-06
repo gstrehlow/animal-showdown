@@ -1,7 +1,6 @@
 async function matchupFormHandler(event) {
   event.preventDefault();
   let dataset = {...event.target.dataset};
-  console.log(dataset);
   const response = await fetch("/api/votes", {
       method: "POST",
       body: JSON.stringify(dataset),
