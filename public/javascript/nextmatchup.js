@@ -3,7 +3,7 @@ function nextFormHandler(event) {
     let dataset = {...event.target.dataset};
     let seenList = JSON.parse(localStorage.getItem("seenMatchups"));
     if (!seenList) seenList = {};
-    seenList[mID] = true;
+    seenList[dataset.matchup_id] = true;
     localStorage.setItem("seenMatchups",JSON.stringify(seenList));
     let target = undefined;
     for (let i = 1; i < 13; i++){
