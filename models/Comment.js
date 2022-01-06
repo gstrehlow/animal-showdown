@@ -23,7 +23,7 @@ Comment.init( //this represents two animals, and their 'matchup'
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'matchups',
+                model: 'matchup',
                 key: 'id'
             }
         },
@@ -31,7 +31,7 @@ Comment.init( //this represents two animals, and their 'matchup'
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'users',
+                model: 'user',
                 key: 'id'
             }
         },

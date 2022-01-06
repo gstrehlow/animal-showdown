@@ -25,7 +25,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-const helpers = require('./utils/helpers');
 
 const hbs = exphbs.create({});
 
