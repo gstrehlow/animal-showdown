@@ -25,7 +25,7 @@ Matchup.init( //this represents two animals, and their 'matchup'
         freezeTableName: true,
         timestamps: false,
         underscored: true,
-        modelName: 'matchups'
+        modelName: 'matchup'
     }
 );
 
