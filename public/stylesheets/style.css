@@ -190,6 +190,10 @@ footer p a {
   background-color: #fdb9b9;
 }
 
+.next-button:hover {
+  background-color: #666;
+}
+
 .matchup-container {
   display: flex;
   flex-direction: column;
