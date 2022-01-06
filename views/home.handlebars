@@ -26,7 +26,7 @@
   </div>
 </div>
 <div>
-  <button data-matchup_id="{{matchup-id}}" class="next-button">"Next Matchup"</button>
+  <button data-matchup_id="{{matchup_id}}" class="next-button">"Next Matchup"</button>
 </div>
 {{#if hasVoted}}
 <div>
@@ -81,9 +81,8 @@
   <textarea placeholder="Voice your opinion!"></textarea>
   <button class="submit-btn">Submit</button>
 </div>
-{{/if}}
+{{!-- this should only be relevant if the user can see comments --}}
 <script src="https://animalshowdown.herokuapp.com/javascript/comment.js"></script>
+{{/if}}
 <script src="https://animalshowdown.herokuapp.com/javascript/vote.js"></script>
 <script src="https://animalshowdown.herokuapp.com/javascript/nextmatchup.js"></script>
-
-
