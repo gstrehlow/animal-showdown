@@ -90,6 +90,7 @@ footer p a {
   justify-content: center;
   margin: auto;
   padding: 0.25rem 0.75rem;
+  cursor: pointer;
 }
 
 .container {
