@@ -90,6 +90,7 @@ footer p a {
   justify-content: center;
   margin: auto;
   padding: 0.25rem 0.75rem;
+  cursor: pointer;
 }
 
 .container {
@@ -224,6 +225,10 @@ footer p a {
 
 .comment-color-2 {
   background-color: #fdb9b9;
+}
+
+.next-button:hover {
+  background-color: #666;
 }
 
 .matchup-container {
