@@ -1,0 +1,88 @@
+<!-- link to chart.js-->
+<script src=https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js></script>
+<!-- whatever goes here will render in the 'body' in main.handlebars-->
+<div class="matchup-container">
+  <h1 class="fight-title">Who would win in a fight?</h1>
+  <div class="animal-container">
+    <div class="button-wrapper">
+      <button
+        data-vote="1"
+        data-matchup_id="{{matchup_id}}"
+        data-user_id="{{session.user_id}}"
+        class="animal_1-button">
+        {{animal_1}}
+      </button>
+    </div>
+    <div class="or">OR</div>
+    <div class="button-wrapper">
+      <button
+        data-vote="2"
+        data-matchup_id="{{matchup_id}}"
+        data-user_id="{{session.user_id}}"
+        class="animal_2-button">
+        {{animal_2}}
+      </button>
+    </div>
+  </div>
+</div>
+<div>
+  <button data-matchup_id="{{matchup_id}}" class="next-button">Next Matchup</button>
+</div>
+{{#if hasVoted}}
+<div>
+ <canvas id="myChart"></canvas>
+<script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+    let animal_1 = document.querySelector('[data-vote="1"]').innerHTML
+    let animal_2 = document.querySelector('[data-vote="2"]').innerHTML
+    let animalChart = new Chart(myChart, {
+        type: 'pie',
+        data:{
+            labels:[animal_1, animal_2 ],
+            datasets:[{
+                label:'Votes',
+                data:[
+                    {{blues}},
+                    {{reds}}
+                ],
+                backgroundColor:[
+                    '#313fa8',
+                    '#a33b2f'
+                ]
+            }]
+        },
+        options:{
+            responsive: true
+        }
+    });
+</script>
+</div>
+<div class="comments">
+    <div class="comment-title">See what others said about this Matchup</div>
+  {{#each comments as |comment|}}
+    <article class="comment-container comment-color-{{comment.color}}">
+      <img
+        class="user-avi"
+        height="50"
+        width="50"
+        src="https://avatars.dicebear.com/api/croodles/{{comment.username}}.svg"
+        alt="{{comment.username}}"
+      />
+      <div class="comment-body">
+        <div class="author">
+          <h4>{{comment.username}}</h4>
+        </div>
+        <div class="comment">
+          {{comment.comment}}
+        </div>
+      </div>
+    </article>
+  {{/each}}
+  <textarea placeholder="Voice your opinion!"></textarea>
+  <button class="submit-btn">Submit</button>
+</div>
+{{!-- this should only be relevant if the user can see comments --}}
+<script src="https://animalshowdown.herokuapp.com/javascript/comment.js"></script>
+{{/if}}
+<script src="https://animalshowdown.herokuapp.com/javascript/vote.js"></script>
+<script src="https://animalshowdown.herokuapp.com/javascript/nextmatchup.js"></script>
