@@ -13,7 +13,10 @@ Comment.init( //this represents two animals, and their 'matchup'
         },
         comment: {
             type: DataTypes.STRING,
-            allowNull: false //will be 1 or 2
+            allowNull: false, //will be 1 or 2
+            validate: {
+                len: [1, 250]
+            }
         },
         color: { //1 for blue 2 for red
             type: DataTypes.INTEGER,
