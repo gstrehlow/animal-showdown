@@ -1,6 +1,7 @@
 # Animal Showdown
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
+![screencapture-animalshowdown-herokuapp-2022-02-12-17_53_21](https://user-images.githubusercontent.com/90304692/153732870-2c38fcbd-a2cc-4b8e-85b4-21f205ae8fb7.png)
 
 https://animalshowdown.herokuapp.com/
 
